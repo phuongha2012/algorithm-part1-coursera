@@ -36,10 +36,11 @@
 
 *******************************************************************/
 
-public class QuickUnionUF {
+public class WeightedQuickUnionUF {
 
     private int[] parent;
     private int count;
+    private size[]
 
     public QuickUnionUF(int n) {
         parent = new int[n];
@@ -87,4 +88,5 @@ public class QuickUnionUF {
 
         StdOut.println(uf.count() + " components");
     }
+    
 }
