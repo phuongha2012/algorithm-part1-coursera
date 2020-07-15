@@ -40,7 +40,7 @@ public class WeightedQuickUnionUF {
 
     private int[] parent;
     private int count;
-    private size[]
+    private int[] size;
 
     public QuickUnionUF(int n) {
         parent = new int[n];
@@ -48,6 +48,7 @@ public class WeightedQuickUnionUF {
 
         for (int i = 0; i < n; i++) {
             parent[i] = i;
+            size[i] = 1;
         }
     }
 
@@ -70,7 +71,14 @@ public class WeightedQuickUnionUF {
         int rootQ = find(q);
 
         if (rootP == rootQ) return;
-        parent[rootP] = rootQ;
+        if (size[rootP] < size[rootQ]) {
+            parent[rootP] = rootQ;
+            size[rootQ] += size[rootP];
+        }
+        else {
+            parent[rootQ] = rootP;
+            size[rootP] += rootQ;
+        }
         count--;
     }
 
