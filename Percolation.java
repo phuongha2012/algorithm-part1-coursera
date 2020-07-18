@@ -117,6 +117,8 @@ public class Percolation {
             percolation.open(i, j);
             if (percolation.percolates()) {
                 StdOut.printf("%nSystem percolates %n");
+            } else {
+                StdOut.printf("%nSystem does not percolate %n");
             }
         }
     }
